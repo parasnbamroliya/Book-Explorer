@@ -41,7 +41,6 @@ The scaffold will work without a key for basic usage but subject to public quota
 4. Run the app:
 
 
-
 npm start
 
 5. Run tests:
