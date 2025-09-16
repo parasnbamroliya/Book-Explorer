@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Book Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+A React app that lets users search books through the Google Books API, view details, and manage favorites.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Multi-field search (title, author, genre/keyword)
+- Search results in a responsive grid
+- Book details page (`/book/:id`) — lazy-loaded with React.lazy + Suspense
+- Favorites management using Context API + localStorage
+- Routing with React Router (`/`, `/book/:id`, `/favorites`)
+- Form validation: at least one field is required
+- Unit tests with Jest + React Testing Library
+- ESLint + Prettier configured
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repo / copy files.
+2. Install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm install
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. (Optional) If you have a Google Books API key you may append it to requests by setting an environment variable in a `.env` file like:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+REACT_APP_GOOGLE_BOOKS_KEY=your_api_key_here
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The scaffold will work without a key for basic usage but subject to public quota limits.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Run the app:
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5. Run tests:
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+npm test
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+6. Lint and format:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+npm run lint
+npm run format
+
+
+## Approach & trade-offs
+
+
+-State management: I used Context API + localStorage for favorites to keep the solution simple and interview-friendly. For a larger app, Redux or Zustand would be appropriate.
+- Routing & Lazy loading: Book details and route components are lazy-loaded to reduce initial bundle size.
+- API integration: `src/utils/googleBooksApi.js` encapsulates the Google Books API calls. It supports advanced query construction using `intitle:`, `inauthor:`, and `subject:`.
+- Testing: Provided basic tests to cover routing and favorites rendering. For full coverage, mock `axios` and write integration tests for search flow and details page.
+
+
+## Next steps / improvements
+
+
+- Add pagination (use `startIndex` parameter) and infinite scroll or page controls.
+- Improve UI/UX and add skeleton loaders.
+- Add better error handling and retry logic for API failures.
+- Add end-to-end tests (Cypress) for full user flows.
+
+
+---
+
+

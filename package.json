@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "Book Explorer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,8 +7,15 @@
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.12.2",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "jest": "^29.6.1",
+    "prettier": "^3.5.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
