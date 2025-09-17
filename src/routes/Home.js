@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <div className="search-panel">
-        <h2>📚 Book Explorer</h2>
+        <h2>Search Book</h2>
         <SearchForm onSearch={handleSearch} />
         <p className="note">
           Search by title, author, or genre/keyword. At least one field is
